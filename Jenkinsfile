@@ -13,7 +13,7 @@ pipeline {
             steps { 
                 withMaven(){
                 echo 'This is a minimal pipeline.' 
-                sh "mvn clean install"
+                sh "mvn clean prepare-package war:exploded"
                 }
             }
         }
