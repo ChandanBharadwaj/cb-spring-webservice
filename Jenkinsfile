@@ -1,29 +1,10 @@
-pipeline{
-  agent any
-  tools {
-        maven 'maven_3.6.0' 
-    }
-  stages {
-    stage('Compile Stage') {
-        steps{
-             maven(maven : 'maven_3.6.0'){
-                 bat 'mvn clean compile'
+pipeline { 
+    agent any  
+    stages { 
+        stage('Build') { 
+            steps { 
+               echo 'This is a minimal pipeline.' 
             }
         }
     }
-     stage('Testing Stage') {
-        steps{
-             maven(maven : 'maven_3.6.0'){
-                 bat 'mvn test'
-            }
-        }
-    }
-     stage('Deployment Stage') {
-        steps{
-             maven(maven : 'maven_3.6.0'){
-                 bat 'mvn deploy'
-            }
-        }
-    }
-  }
 }
